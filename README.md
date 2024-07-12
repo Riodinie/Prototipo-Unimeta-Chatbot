@@ -1,46 +1,42 @@
-# Chatbot Deployment with Flask and JavaScript
+# Implementación de Chatbot con Flask y JavaScript
 
-In this tutorial we deploy the chatbot I created in [this](https://github.com/python-engineer/pytorch-chatbot) tutorial with Flask and JavaScript.
 
-This gives 2 deployment options:
-- Deploy within Flask app with jinja2 template
-- Serve only the Flask prediction API. The used html and javascript files can be included in any Frontend application (with only a slight modification) and can run completely separate from the Flask App then.
+Esto ofrece 2 opciones de implementación:
+- Implementar dentro de la aplicación Flask con la plantilla jinja2
+- Sirve solo la API de predicción de Flask. Los archivos html y javascript usados ​​se pueden incluir en cualquier aplicación Frontend (con solo una ligera modificación) y luego pueden ejecutarse completamente separados de la aplicación Flask.
 
-## Initial Setup:
-This repo currently contains the starter files.
+## Configuración inicial:
+Este repositorio contiene actualmente los archivos de inicio.
 
-Clone repo and create a virtual environment
+Clonar repositorio y crear un entorno virtual.
 ```
 python3 -m venv venv
 .\venv\Scripts\activate
 ```
-Install dependencies
+Instalar dependencias
 ```
-$ (venv) pip install nltk
-$ (venv) pip install Flask torch torchvision nltk
+(venv) pip install nltk
+(venv) pip install Flask torch torchvision nltk
 ```
-Install nltk package
+Instalar el paquete nltk
 ```
-$ (venv) python
+(venv) python
 >>> import nltk
 >>> nltk.download('punkt')
 ```
-Modify `intents.json` with different intents and responses for your Chatbot
+Modifica `intents.json` con diferentes `intents`  y respuestas para tu Chatbot.
 
-Run
+Ejecutar
 ```
 python train.py
 ```
-This will dump data.pth file. And then run
-the following command to test it in the console.
+Esto volcará el archivo `data.pth`. Y luego ejecute el siguiente comando para probarlo en la consola.
 ```
 python chat.py
 ```
 
-Now for deployment follow my tutorial to implement `app.py` and `app.js`.
 
-
-## Credits:
-This repo was used for the frontend code:
+## Créditos:
+Este repositorio se usó para el código frontend:
 1. https://github.com/hitchcliff/front-end-chatjs
 2. https://templatemo.com/tm-569-edu-meeting#goog_rewarded
