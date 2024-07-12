@@ -3,81 +3,308 @@
     {
       "tag": "greeting",
       "patterns": [
-        "Hi",
-        "Hey",
-        "How are you",
-        "Is anyone there?",
-        "Hello",
-        "Good day"
+        "Hola",
+        "Buen día",
+        "¿Cómo estás?",
+        "¿Hay alguien ahí?",
+        "Hola, ¿en qué puedo ayudarte?",
+        "¡Hola!",
+        "Soy un estudiante universitario",
+        "Hola Tyto"
       ],
       "responses": [
-        "Hey :-)",
-        "Hello, thanks for visiting",
-        "Hi there, what can I do for you?",
-        "Hi there, how can I help?"
+        "Hola, Soy Tyto. ¿En qué puedo ayudarte hoy?",
+        "¡Hola! Soy Tyto, el asistente virtual de Unimeta. ¿En qué puedo asistirte?",
+        "¡Hola! Bienvenido a Unimeta. Soy Tyto, ¿en qué puedo ayudarte?",
+        "¡Hola! Soy Tyto de Unimeta. ¿Cómo puedo ayudarte hoy?",
+        "Hola, soy Tyto, el chatbot de Unimeta. ¿En qué puedo colaborarte?",
+        "¡Hola! Soy Tyto, ¿qué puedo hacer por ti hoy?"
       ]
     },
     {
       "tag": "goodbye",
-      "patterns": ["Bye", "See you later", "Goodbye"],
+      "patterns": [
+        "Adiós", 
+        "Hasta luego",
+        "Nos vemos", 
+        "Me tengo que ir",
+        "Chao"
+      ],
       "responses": [
-        "See you later, thanks for visiting",
-        "Have a nice day",
-        "Bye! Come back again soon."
+        "¡Hasta luego! Si tienes más preguntas, no dudes en volver. ¡Que tengas un excelente día!",
+        "¡Nos vemos! Recuerda que estoy aquí para ayudarte en lo que necesites. ¡Éxito en tus estudios!",
+        "¡Adiós! Siempre puedes contar conmigo para resolver tus dudas. ¡Que tengas un buen día!",
+        "Siempre puedes encontrarme aquí si necesitas ayuda. ¡Hasta pronto!",
+        "Chao, ¡espero verte pronto de nuevo! Siempre estoy disponible para ayudarte."
       ]
     },
     {
       "tag": "thanks",
-      "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
-      "responses": ["Happy to help!", "Any time!", "My pleasure"]
+      "patterns": ["Gracias", 
+      "Gracias por la ayuda", 
+      "¡Excelente ayuda!", 
+      "¡Muchas gracias!", 
+      "Tyto, gracias por tu ayuda", 
+      "¡Gracias, Tyto!"],
+  "responses": [
+    "¡De nada! Si necesitas más ayuda, no dudes en preguntar.",
+    "¡Siempre a tu disposición! ¿Hay algo más en lo que pueda ayudarte?",
+    "¡Es un placer ayudarte! ¡Que tengas un excelente día estudiantil!",
+    "¡No hay de qué! Recuerda que estamos aquí para apoyarte en todo lo que necesites.",
+    "¡Gracias a ti por confiar en mí como tu asistente virtual de Unimeta! ¡Siempre a tu servicio!"
+  ]
     },
     {
-      "tag": "items",
+      "tag": "carreras",
       "patterns": [
-        "Which items do you have?",
-        "What kinds of items are there?",
-        "What do you sell?"
+        "¿Qué programas académicos ofrecen?",
+        "Quiero información sobre las carreras",
+        "¿Qué carreras ofrecen?",
+        "Estoy interesado en estudiar",
+        "Estoy buscando información sobre carreras",
+        "Quiero saber qué estudiar en la universidad"
       ],
       "responses": [
-        "We sell coffee and tea",
-        "We have coffee and tea"
+        "En Unimeta ofrecemos una amplia variedad de carreras para tu crecimiento profesional. Algunas de las carreras que ofrecemos son: \n\n-Ingeniería Agroindustrial\n- Ingeniería Ambiental\n- Ingeniería Civil\n- Ingeniería Eléctrica\n- Ingeniería Industrial\n- Ingeniería de Alimentos\n- Ingeniería de Sistemas",
+        "En Unimeta ofrecemos una amplia variedad de carreras para tu crecimiento profesional. Algunas de las carreras que ofrecemos son:\n\n- Administración de Empresas\n- Contaduría Pública\n- Mercadeo y Publicidad\n- Derecho\n ¿Te gustaría más información sobre alguna de estas carreras?",
+        "En Unimeta ofrecemos una amplia variedad de carreras para tu crecimiento profesional. Algunas de las carreras que ofrecemos son: \n\n-Comunicación Social y Periodismo\n- Trabajo Social\n- Arquitectura\n ¿Te gustaría más información sobre alguna de estas carreras?"
       ]
     },
     {
-      "tag": "payments",
+      "tag": "administracion_empresas",
       "patterns": [
-        "Do you take credit cards?",
-        "Do you accept Mastercard?",
-        "Can I pay with Paypal?",
-        "Are you cash only?"
+        "Quiero información sobre Administración de Empresas",
+        "¿Qué puedo saber sobre Administración de Empresas?",
+        "Información sobre la carrera de Administración de Empresas"
       ],
       "responses": [
-        "We accept VISA, Mastercard and Paypal",
-        "We accept most major credit cards, and Paypal"
+        "La carrera de Administración de Empresas prepara a los estudiantes para gestionar eficientemente empresas y organizaciones.", 
+        "En Unimeta, ofrecemos un plan de estudios completo que abarca temas como gestión financiera, recursos humanos, marketing y más. ¿Te gustaría saber más detalles?"
       ]
     },
     {
-      "tag": "delivery",
+      "tag": "contaduria_publica",
       "patterns": [
-        "How long does delivery take?",
-        "How long does shipping take?",
-        "When do I get my delivery?"
+        "Quiero información sobre Contaduría Pública",
+        "¿Qué puedo saber sobre Contaduría Pública?",
+        "Información sobre la carrera de Contaduría Pública"
       ],
       "responses": [
-        "Delivery takes 2-4 days",
-        "Shipping takes 2-4 days"
+        "La carrera de Contaduría Pública en Unimeta prepara a los estudiantes para ser profesionales en el área contable y financiera.",
+        "Nuestro plan de estudios incluye temas como contabilidad financiera, auditoría, impuestos y más. ¿Hay algo más que te gustaría saber?"
       ]
     },
     {
-      "tag": "funny",
+      "tag": "mercadeo_publicidad",
       "patterns": [
-        "Tell me a joke!",
-        "Tell me something funny!",
-        "Do you know a joke?"
+        "Quiero información sobre Mercadeo y Publicidad",
+        "¿Qué puedo saber sobre Mercadeo y Publicidad?",
+        "Información sobre la carrera de Mercadeo y Publicidad"
       ],
       "responses": [
-        "Why did the hipster burn his mouth? He drank the coffee before it was cool.",
-        "What did the buffalo say when his son left for college? Bison."
+        "En Unimeta, la carrera de Mercadeo y Publicidad prepara a los estudiantes para el mundo del marketing y la comunicación publicitaria.",
+        "Nuestro plan de estudios cubre áreas como investigación de mercados, estrategias publicitarias, gestión de marcas y más. ¿Hay algo específico que te interese?"
+      ]
+    },
+    {
+      "tag": "derecho",
+      "patterns": [
+        "Quiero información sobre Derecho",
+        "¿Qué puedo saber sobre Derecho?",
+        "Información sobre la carrera de Derecho"
+      ],
+      "responses": [
+        "La carrera de Derecho en Unimeta ofrece una formación completa en el campo legal. Nuestro plan de estudios incluye materias como derecho civil, penal, laboral, entre otros. ¿Te gustaría saber más?"
+      ]
+    },
+    {
+      "tag": "comunicacion_social",
+      "patterns": [
+        "Quiero información sobre Comunicación Social y Periodismo",
+        "¿Qué puedo saber sobre Comunicación Social y Periodismo?",
+        "Información sobre la carrera de Comunicación Social y Periodismo"
+      ],
+      "responses": [
+        "La carrera de Comunicación Social y Periodismo en Unimeta prepara a los estudiantes para el mundo de la comunicación.",
+        "Nuestro plan de estudios cubre áreas como periodismo digital, producción audiovisual, comunicación corporativa, entre otros. ¿Hay algo más que te gustaría saber?"
+      ]
+    },
+    {
+      "tag": "trabajo_social",
+      "patterns": [
+        "Quiero información sobre Trabajo Social",
+        "¿Qué puedo saber sobre Trabajo Social?",
+        "Información sobre la carrera de Trabajo Social"
+      ],
+      "responses": [
+        "En Unimeta, la carrera de Trabajo Social prepara a los estudiantes para trabajar en la promoción del bienestar social y la atención a comunidades.",
+        "Nuestro plan de estudios cubre áreas como intervención social, políticas sociales, trabajo con grupos vulnerables, entre otros. ¿Te gustaría saber más?"
+      ]
+    },
+    {
+      "tag": "arquitectura",
+      "patterns": [
+        "Quiero información sobre Arquitectura",
+        "¿Qué puedo saber sobre Arquitectura?",
+        "Información sobre la carrera de Arquitectura"
+      ],
+      "responses": [
+        "La carrera de Arquitectura en Unimeta prepara a los estudiantes para diseñar espacios habitables y funcionales.",
+        "Nuestro plan de estudios cubre áreas como diseño arquitectónico, urbanismo, tecnología de la construcción y más. ¿Hay algo más en lo que pueda ayudarte?"
+      ]
+    },
+    {
+      "tag": "ingenieria_agroindustrial",
+      "patterns": [
+        "Quiero información sobre Ingeniería Agroindustrial",
+        "¿Qué puedo saber sobre Ingeniería Agroindustrial?",
+        "Información sobre la carrera de Ingeniería Agroindustrial"
+      ],
+      "responses": [
+        "La carrera de Ingeniería Agroindustrial en Unimeta prepara a los estudiantes para gestionar procesos industriales en el sector agropecuario.",
+        "Nuestro plan de estudios incluye áreas como producción agrícola, tecnología de alimentos, gestión de calidad, entre otros. ¿Te gustaría saber más?"
+      ]
+    },
+    {
+      "tag": "ingenieria_ambiental",
+      "patterns": [
+        "Quiero información sobre Ingeniería Ambiental",
+        "¿Qué puedo saber sobre Ingeniería Ambiental?",
+        "Información sobre la carrera de Ingeniería Ambiental"
+      ],
+      "responses": [
+        "En Unimeta, la carrera de Ingeniería Ambiental prepara a los estudiantes para trabajar en la protección y conservación del medio ambiente.",
+        "Nuestro plan de estudios abarca áreas como gestión de recursos naturales, control de contaminación, evaluación de impacto ambiental y más. ¿Hay algo más en lo que pueda ayudarte?"
+      ]
+    },
+    {
+      "tag": "ingenieria_civil",
+      "patterns": [
+        "Quiero información sobre Ingeniería Civil",
+        "¿Qué puedo saber sobre Ingeniería Civil?",
+        "Información sobre la carrera de Ingeniería Civil"
+      ],
+      "responses": [
+        "La carrera de Ingeniería Civil en Unimeta prepara a los estudiantes para diseñar y construir infraestructuras civiles.",
+        "Nuestro plan de estudios cubre áreas como diseño estructural, geotecnia, gestión de proyectos, entre otros. ¿Te gustaría saber más?"
+      ]
+    },
+    {
+      "tag": "ingenieria_electrica",
+      "patterns": [
+        "Quiero información sobre Ingeniería Eléctrica",
+        "¿Qué puedo saber sobre Ingeniería Eléctrica?",
+        "Información sobre la carrera de Ingeniería Eléctrica"
+      ],
+      "responses": [
+        "En Unimeta, la carrera de Ingeniería Eléctrica prepara a los estudiantes para trabajar en el campo de la electricidad y la energía.",
+        "Nuestro plan de estudios cubre áreas como sistemas de potencia, electrónica de potencia, control de procesos eléctricos, entre otros. ¿Hay algo más que te interese?"
+      ]
+    },
+    {
+      "tag": "ingenieria_industrial",
+      "patterns": [
+        "Quiero información sobre Ingeniería Industrial",
+        "¿Qué puedo saber sobre Ingeniería Industrial?",
+        "Información sobre la carrera de Ingeniería Industrial"
+      ],
+      "responses": [
+        "La carrera de Ingeniería Industrial en Unimeta prepara a los estudiantes para optimizar procesos y sistemas en empresas.",
+        "Nuestro plan de estudios incluye áreas como gestión de operaciones, logística, ingeniería de calidad, entre otros. ¿Te gustaría saber más?"
+      ]
+    },
+    {
+      "tag": "ingenieria_alimentos",
+      "patterns": [
+        "Quiero información sobre Ingeniería de Alimentos",
+        "¿Qué puedo saber sobre Ingeniería de Alimentos?",
+        "Información sobre la carrera de Ingeniería de Alimentos"
+      ],
+      "responses": [
+        "En Unimeta, la carrera de Ingeniería de Alimentos prepara a los estudiantes para trabajar en la producción y proceTytoiento de alimentos.",
+        "Nuestro plan de estudios abarca áreas como tecnología de alimentos, control de calidad, seguridad alimentaria, entre otros. ¿Te gustaría saber más?"
+      ]
+    },
+    {
+      "tag": "ingenieria_sistemas",
+      "patterns": [
+        "Quiero información sobre Ingeniería de Sistemas",
+        "¿Qué puedo saber sobre Ingeniería de Sistemas?",
+        "Información sobre la carrera de Ingeniería de Sistemas"
+      ],
+      "responses": [
+        "La carrera de Ingeniería de Sistemas en Unimeta prepara a los estudiantes para diseñar y desarrollar sistemas informáticos.",
+        "Nuestro plan de estudios cubre áreas como programación, bases de datos, redes de computadoras, entre otros. ¿Hay algo más en lo que pueda ayudarte?"
+      ]
+    },
+    {
+      "tag": "tipos_beca",
+      "patterns": [
+        "Hablame de las becas",
+        "Tipos de becas",
+        "¿Qué tipos de becas hay?"
+      ],
+      "responses": [
+        "A continuación, te presento algunos de los tipos de becas que puedes encontrar en UNIMETA:\n\n- Beca 'María Lucía García de Mojica': Esta beca se otorga a estudiantes de pregrado o posgrado con mérito académico, escasos recursos económicos o condición de especial protección.",
+        "A continuación, te presento algunos de los tipos de becas que puedes encontrar en UNIMETA:\n\n- Beca mejor bachiller: Se otorga a los mejores bachilleres que ingresan a UNIMETA.\n- Beca mejor prueba Saber 11: Para aquellos estudiantes que obtuvieron excelentes resultados en las pruebas Saber 11.",
+        "A continuación, te presento algunos de los tipos de becas que puedes encontrar en UNIMETA:\n\n- Beca por convenio o alianza interinstitucional: Estudiantes beneficiados por acuerdos entre UNIMETA y otras instituciones.\n- Beca región: Dirigida a estudiantes de la región del Meta."
+      ]
+    },
+    {
+      "tag": "resoluciones",
+      "patterns": [
+        "¿Dónde puedo encontrar las resoluciones de parciales?",
+        "Necesito información sobre las resoluciones académicas",
+        "¿Dónde puedo consultar el calendario académico?",
+        "Quiero saber más sobre las resoluciones estudiantiles"
+      ],
+      "responses": [
+        "Puedes encontrar las resoluciones académicas y el calendario académico en nuestro sitio web oficial. Aquí tienes los enlaces:\n\n- [Resoluciones de Parciales](http://www.unimeta.edu.co/resoluciones-parciales)\n- [Calendario Académico](http://www.unimeta.edu.co/calendario-academico)\n\n¿Hay algo más en lo que pueda ayudarte?"
+      ]
+    },
+    {
+      "tag": "precios",
+      "patterns": [
+        "¿Cuál es el costo de la matrícula?",
+        "¿Cuánto cuesta estudiar en su universidad?",
+        "Información sobre precios"
+      ],
+      "responses": [
+        "Los costos de matrícula varían según el programa de estudios y otros factores. ¿En qué programa estás interesado?"
+      ]
+    },
+    {
+      "tag": "precios",
+      "patterns": [
+        "¿Cuál es el costo de la matrícula?",
+        "¿Cuánto cuesta estudiar en su universidad?",
+        "Información sobre precios"
+      ],
+      "responses": [
+        "Los costos de matrícula varían según el programa de estudios y otros factores. ¿En qué programa estás interesado?"
+      ]
+    },
+    {
+      "tag": "recursos",
+      "patterns": [
+        "¿Qué tipo de recursos ofrecen para los estudiantes?",
+        "Información sobre los recursos disponibles",
+        "¿Hay bibliotecas o laboratorios disponibles?"
+      ],
+      "responses": [
+        "Tenemos una variedad de recursos disponibles para nuestros estudiantes, incluyendo bibliotecas, laboratorios y servicios de tutoría. ¿Hay algo en particular que te interese?"
+      ]
+    },
+    {
+      "tag": "eventos_actuales",
+      "patterns": [
+        "¿Hay algún evento próximo?",
+        "¿Cuáles son los eventos actuales?",
+        "¿Qué eventos hay esta semana?",
+        "Eventos"
+      ],
+      "responses": [
+        "Actualmente estamos organizando varios eventos para los estudiantes. ¿Te gustaría más información sobre alguno en particular?"
       ]
     }
   ]
