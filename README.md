@@ -24,7 +24,7 @@ Instalar el paquete nltk
 >>> import nltk
 >>> nltk.download('punkt')
 ```
-Modify `intents.json` with different intents and responses for your Chatbot
+Modifica `intents.json` con diferentes `intents`  y respuestas para tu Chatbot.
 
 Ejecutar
 ```
@@ -34,8 +34,6 @@ Esto volcará el archivo `data.pth`. Y luego ejecute el siguiente comando para p
 ```
 python chat.py
 ```
-
-Modifica `intents.json` con diferentes `intents`  y respuestas para tu Chatbot.
 
 
 ## Créditos:
