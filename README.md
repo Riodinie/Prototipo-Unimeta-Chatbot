@@ -34,7 +34,12 @@ Esto volcará el archivo `data.pth`. Y luego ejecute el siguiente comando para p
 ```
 python chat.py
 ```
+## Imagenes:
+Pagina
+![Pagina](https://github.com/user-attachments/assets/9a6b33b3-ecc4-4344-86e3-aee63eb059e5)
 
+Chatbot
+![Chatbot](https://github.com/user-attachments/assets/f2d30ea9-8eff-453d-9445-10585e779ab8)
 
 ## Créditos:
 Este repositorio se usó para el código frontend:
