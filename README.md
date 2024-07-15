@@ -1,10 +1,5 @@
 # Implementación de Chatbot con Flask y JavaScript
 
-
-Esto ofrece 2 opciones de implementación:
-- Implementar dentro de la aplicación Flask con la plantilla jinja2
-- Sirve solo la API de predicción de Flask. Los archivos html y javascript usados ​​se pueden incluir en cualquier aplicación Frontend (con solo una ligera modificación) y luego pueden ejecutarse completamente separados de la aplicación Flask.
-
 ## Configuración inicial:
 Este repositorio contiene actualmente los archivos de inicio.
 
@@ -34,7 +29,9 @@ Esto volcará el archivo `data.pth`. Y luego ejecute el siguiente comando para p
 ```
 python chat.py
 ```
-
+##Imganes 
+![Captura de pantalla_12-7-2024_13171_127 0 0 1](https://github.com/user-attachments/assets/0ca5bedf-a045-418f-b6a2-a5b28a1f7d49)
+![Captura de pantalla_12-7-2024_131954_127 0 0 1](https://github.com/user-attachments/assets/9ee7be89-c853-435f-86fb-f0ded18a95a0)
 ## Créditos:
 Este repositorio se usó para el código frontend:
 1. https://github.com/hitchcliff/front-end-chatjs
