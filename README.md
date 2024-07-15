@@ -29,9 +29,11 @@ Esto volcará el archivo `data.pth`. Y luego ejecute el siguiente comando para p
 ```
 python chat.py
 ```
-##Imganes 
+## Imagenes 
+
 ![Captura de pantalla_12-7-2024_13171_127 0 0 1](https://github.com/user-attachments/assets/0ca5bedf-a045-418f-b6a2-a5b28a1f7d49)
 ![Captura de pantalla_12-7-2024_131954_127 0 0 1](https://github.com/user-attachments/assets/9ee7be89-c853-435f-86fb-f0ded18a95a0)
+
 ## Créditos:
 Este repositorio se usó para el código frontend:
 1. https://github.com/hitchcliff/front-end-chatjs
