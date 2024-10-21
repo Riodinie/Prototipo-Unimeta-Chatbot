@@ -10,7 +10,8 @@
         "Hola, ¿en qué puedo ayudarte?",
         "¡Hola!",
         "Soy un estudiante universitario",
-        "Hola Tyto"
+        "Hola Tyto",
+        "Hi"
       ],
       "responses": [
         "Hola, Soy Tyto. ¿En qué puedo ayudarte hoy?",
@@ -46,12 +47,12 @@
       "¡Muchas gracias!", 
       "Tyto, gracias por tu ayuda", 
       "¡Gracias, Tyto!"],
-  "responses": [
-    "¡De nada! Si necesitas más ayuda, no dudes en preguntar.",
-    "¡Siempre a tu disposición! ¿Hay algo más en lo que pueda ayudarte?",
-    "¡Es un placer ayudarte! ¡Que tengas un excelente día estudiantil!",
-    "¡No hay de qué! Recuerda que estamos aquí para apoyarte en todo lo que necesites.",
-    "¡Gracias a ti por confiar en mí como tu asistente virtual de Unimeta! ¡Siempre a tu servicio!"
+      "responses": [
+        "¡De nada! Si necesitas más ayuda, no dudes en preguntar.",
+        "¡Siempre a tu disposición! ¿Hay algo más en lo que pueda ayudarte?",
+        "¡Es un placer ayudarte! ¡Que tengas un excelente día estudiantil!",
+        "¡No hay de qué! Recuerda que estamos aquí para apoyarte en todo lo que necesites.",
+        "¡Gracias a ti por confiar en mí como tu asistente virtual de Unimeta! ¡Siempre a tu servicio!"
   ]
     },
     {
