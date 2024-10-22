@@ -1,44 +1,40 @@
-import numpy as np
-import nltk
-# nltk.download('punkt')
-from nltk.stem.porter import PorterStemmer
+# Librerias
+import numpy as np                          # Calculos matematicos y @
+import nltk                                 # NLP
+from nltk.stem.porter import PorterStemmer  # Algoritmo para la reducir palabras a su raíz (stemmer)
+
+# Inicializa el stemmer
 stemmer = PorterStemmer()
 
-
+# Funcion descompone una oracion en una lista de palabras o tokens
 def tokenize(sentence):
     """
-    split sentence into array of words/tokens
-    a token can be a word or punctuation character, or number
+    Un token puede ser una palabra, un carácter de puntuación o un número.
+    Ej: sentence = "Fechas de matriculas." ---> ['Fechas', 'de', 'matriculas', '.']
     """
-    return nltk.word_tokenize(sentence)
+    return nltk.word_tokenize(sentence)     # Divide la oración en palabras individuales
 
-
+# Funcion Buscar Raiz Base 
 def stem(word):
     """
-    stemming = find the root form of the word
-    examples:
-    words = ["organize", "organizes", "organizing"]
-    words = [stem(w) for w in words]
-    -> ["organ", "organ", "organ"]
+    Stemming = encontrar la forma raíz de la palabra.
+    Ej: words = ["organizar", "organizo", "organizara"] ---> words = [stem(w) for w in words] ---> ["organ", "organ", "organ"]
     """
-    return stemmer.stem(word.lower())
+    return stemmer.stem(word.lower())       # Reduce la palabra a su raíz en minúsculas
 
-
+# Funcion Representar numericamente una oracion (Bolsa de Palabras)
 def bag_of_words(tokenized_sentence, words):
     """
-    return bag of words array:
-    1 for each known word that exists in the sentence, 0 otherwise
-    example:
-    sentence = ["hello", "how", "are", "you"]
-    words = ["hi", "hello", "I", "you", "bye", "thank", "cool"]
-    bog   = [  0 ,    1 ,    0 ,   1 ,    0 ,    0 ,      0]
+    Devuelve un array de tipo "bag of words" (bolsa de palabras):
+    1 para cada palabra conocida que esté en la oración, 0 en caso contrario.
+    Ej: sentence = ["hola", "como", "estas"] ---> words = ["hola", "adios", "gracias", "estas", "bien"] ---> bag = [ 1, 0, 0, 0, 0, 1, 0]
     """
-    # stem each word
+    # Stemmea cada palabra tokenizada (la reduce a su raíz)
     sentence_words = [stem(word) for word in tokenized_sentence]
-    # initialize bag with 0 for each word
+    # Inicializa un array de ceros del tamaño del número de palabras conocidas
     bag = np.zeros(len(words), dtype=np.float32)
-    for idx, w in enumerate(words):
-        if w in sentence_words: 
-            bag[idx] = 1
-
-    return bag
+    
+    for idx, w in enumerate(words):         # Para cada palabra en 'words', verifica si está en la oración tokenizada
+        if w in sentence_words:             # Si la palabra está en la oración tokenizada
+            bag[idx] = 1                    # Asigna 1 en la posición correspondiente en la bolsa de palabras, sino es 0
+    return bag                              # Devuelve el array de "bag of words"
