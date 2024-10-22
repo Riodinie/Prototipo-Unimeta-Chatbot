@@ -1,47 +1,50 @@
-import numpy as np
-import random
-import json
+# Librerias
+import random                                       # Respuestas Aleatorias 
+import json                                         # Archivos JSON
+import torch                                        # Deep Learning
+import torch.nn as nn                               # Modulo RNA
+import numpy as np                                  # Calculos matematicos y @
 
-import torch
-import torch.nn as nn
-from torch.utils.data import Dataset, DataLoader
+from torch.utils.data import Dataset, DataLoader    # Manejo de conjunto de datos y cargarlos
+from nltk_utils import bag_of_words, tokenize, stem # Funciones de procesamiento de Texto (NLP/Palabras a Vector/Mensaje a Palabras/descomponer palabras)
+from model import NeuralNet                         # Importa Modelo RNA Personalizada
 
-from nltk_utils import bag_of_words, tokenize, stem
-from model import NeuralNet
-
+# Leyendo el Json (Intenciones)
 with open('intents.json', 'r') as f:
-    intents = json.load(f)
+    intents = json.load(f)              # JSON a un diccionario
 
-all_words = []
-tags = []
-xy = []
-# loop through each sentence in our intents patterns
+# Inicializacion de Listas
+all_words = []                          # Lista Palabras Unicas
+tags = []                               # Lista etiquetas de Intencion
+xy = []                                 # Lista pares de Patrones (frases)
+
+# Iterar a travez de cada patron de Intencion (JSON)
 for intent in intents['intents']:
-    tag = intent['tag']
-    # add to tag list
-    tags.append(tag)
-    for pattern in intent['patterns']:
-        # tokenize each word in the sentence
-        w = tokenize(pattern)
-        # add to our words list
-        all_words.extend(w)
-        # add to xy pair
-        xy.append((w, tag))
+    tag = intent['tag']                 # Obtiene la etiqueta de intención
+    tags.append(tag)                    # Agrega la etiqueta a la lista de etiquetas
 
-# stem and lower each word
-ignore_words = ['?', '.', '!']
-all_words = [stem(w) for w in all_words if w not in ignore_words]
-# remove duplicates and sort
-all_words = sorted(set(all_words))
-tags = sorted(set(tags))
+    for pattern in intent['patterns']:  # Itera a través de los patrones de conversación
+        w = tokenize(pattern)           # Tokeniza cada patrón en palabras
+        all_words.extend(w)             # Agrega las palabras a la lista de todas las palabras unicas
+        xy.append((w, tag))             # Agrega el par (palabras, etiqueta) a la lista de patrones
 
-print(len(xy), "patterns")
-print(len(tags), "tags:", tags)
-print(len(all_words), "unique stemmed words:", all_words)
+# Aplica stemming y convierte las palabras a minúsculas
+ignore_words = ['?', '.', '!']          # Palabras que se ignorarán
+all_words = [stem(w) for w in all_words if w not in ignore_words]   # Reduce las palabras a su raíz
 
-# create training data
-X_train = []
-y_train = []
+# Convierte la lista en un conjunto para eliminar duplicados y ordena
+all_words = sorted(set(all_words))      # para Palabras Unicas
+tags = sorted(set(tags))                # para Etiquetas
+
+# Imprimir Resultados
+print(len(xy), "patterns")              # Cuántos patrones encontrados
+print(len(tags), "tags:", tags)         # Cuántas etiquetas únicas hay
+print(len(all_words), "unique stemmed words:", all_words)   # Cuántas palabras únicas hay
+
+# Creación de Datos de Entrenamiento
+X_train = []                            # Lista para las características (X)
+y_train = []                            # Lista para las etiquetas (y)
+
 for (pattern_sentence, tag) in xy:
     # X: bag of words for each pattern_sentence
     bag = bag_of_words(pattern_sentence, all_words)
