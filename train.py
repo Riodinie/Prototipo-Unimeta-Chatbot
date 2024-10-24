@@ -45,56 +45,62 @@ print(len(all_words), "unique stemmed words:", all_words)   # Cuántas palabras 
 X_train = []                            # Lista para las características (X)
 y_train = []                            # Lista para las etiquetas (y)
 
+#Iterar sobre los pares de xy
 for (pattern_sentence, tag) in xy:
-    # X: bag of words for each pattern_sentence
-    bag = bag_of_words(pattern_sentence, all_words)
-    X_train.append(bag)
-    # y: PyTorch CrossEntropyLoss needs only class labels, not one-hot
-    label = tags.index(tag)
-    y_train.append(label)
+    bag = bag_of_words(pattern_sentence, all_words) # Oracion a bolsa de palabras
+    X_train.append(bag)                 # Agrega la bolsa de palabras a la lista de características
+    label = tags.index(tag)             # Obtiene el índice de la etiqueta en la lista de etiquetas
+    y_train.append(label)               # Agrega el índice de la etiqueta a la lista de etiquetas
 
-X_train = np.array(X_train)
-y_train = np.array(y_train)
+# Convierte las listas de Python a arreglos de NumPy
+X_train = np.array(X_train)             # Lista Caracteristicas
+y_train = np.array(y_train)             # Lista Etiquetas
 
-# Hyper-parameters 
-num_epochs = 1000
-batch_size = 8
-learning_rate = 0.001
-input_size = len(X_train[0])
-hidden_size = 8
-output_size = len(tags)
+# Hiperparámetros (Valores de Config.)
+num_epochs = 1000                       # #veces que se entrena
+batch_size = 8                          # Tamaño de muestras para el entrenamiento
+learning_rate = 0.001                   # Tasa de aprendizaje (Velocidad Ajuste de Pesos)
+input_size = len(X_train[0])            # #Caracteristicas de entreda (BOW)
+hidden_size = 8                         # Tamaño la Capa Oculta
+output_size = len(tags)                 # Tamaño de la Salida (#Etiquetas Unicas-Intenciones)
 print(input_size, output_size)
 
+# Clase Preparar los datos del Entrenamiento
 class ChatDataset(Dataset):
 
+    # Inicializa las variables
     def __init__(self):
-        self.n_samples = len(X_train)
-        self.x_data = X_train
-        self.y_data = y_train
+        self.n_samples = len(X_train)   # #Total de muestras (entrada) (oracion y etiqueta)
+        self.x_data = X_train           # Datos de entrada (características) (BOW)
+        self.y_data = y_train           # Etiquetas (clases o intenciones) (de la entrada)
 
-    # support indexing such that dataset[i] can be used to get i-th sample
+    # Acceder a una muestra especifica
+    # Soporta indexación para que dataset[i] se pueda usar para obtener la i-ésima muestra
     def __getitem__(self, index):
-        return self.x_data[index], self.y_data[index]
+        return self.x_data[index], self.y_data[index]   # Devuelve el par (entrada, salida)
 
-    # we can call len(dataset) to return the size
+    # Puede llamar a len(dataset) para obtener el tamaño
     def __len__(self):
-        return self.n_samples
+        return self.n_samples           # Devuelve el número de muestras
 
-dataset = ChatDataset()
+#Dividir en lotes
+dataset = ChatDataset()                 # Crea una instancia del conjunto de datos
+# Crea un DataLoader para gestionar el acceso a los datos
 train_loader = DataLoader(dataset=dataset,
-                          batch_size=batch_size,
-                          shuffle=True,
-                          num_workers=0)
+                          batch_size=batch_size,    # #Muestras se Procesan a la vez
+                          shuffle=True,             # Mezcla aleatoriamente 
+                          num_workers=0)            # Número de hilos (procesamiento)
 
+# Establece el dispositivo 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+# Crea una instancia del modelo RNA personalizado - (Tamaño entrada (BOW)-(Tamaño Capa Oculta)-(#ClasesIntenciones)
+model = NeuralNet(input_size, hidden_size, output_size).to(device)  # Mueve el modelo al dispositivo
 
-model = NeuralNet(input_size, hidden_size, output_size).to(device)
-
-# Loss and optimizer
+# Define la función de pérdida y el optimizador
 criterion = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
-# Train the model
+# Entrena el modelo
 for epoch in range(num_epochs):
     for (words, labels) in train_loader:
         words = words.to(device)
@@ -115,8 +121,10 @@ for epoch in range(num_epochs):
         print (f'Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}')
 
 
+# Imprime la pérdida final después de todas las épocas
 print(f'final loss: {loss.item():.4f}')
 
+# Guarda el estado del modelo y la información de entrenamiento
 data = {
 "model_state": model.state_dict(),
 "input_size": input_size,
