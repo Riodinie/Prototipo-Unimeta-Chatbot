@@ -57,7 +57,7 @@ X_train = np.array(X_train)             # Lista Caracteristicas
 y_train = np.array(y_train)             # Lista Etiquetas
 
 # Hiperparámetros (Valores de Config.)
-num_epochs = 1000                       # #veces que se entrena
+num_epochs = 1000                       # #veces que se recorre los datos
 batch_size = 8                          # Tamaño de muestras para el entrenamiento
 learning_rate = 0.001                   # Tasa de aprendizaje (Velocidad Ajuste de Pesos)
 input_size = len(X_train[0])            # #Caracteristicas de entreda (BOW)
@@ -100,41 +100,42 @@ model = NeuralNet(input_size, hidden_size, output_size).to(device)  # Mueve el m
 criterion = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
-# Entrena el modelo
-for epoch in range(num_epochs):
-    for (words, labels) in train_loader:
-        words = words.to(device)
-        labels = labels.to(dtype=torch.long).to(device)
+# Entrenamiento del Modelo
+for epoch in range(num_epochs):                     # Itera a través de cada recorrido
+    for (words, labels) in train_loader:            # Itera a través de los Lotes de Datos (DataLoader)
+        words = words.to(device)                    # Mueve las caracteristicas al dispositivo
+        labels = labels.to(dtype=torch.long).to(device) # Mueve las etiquetas al dispositivo
         
-        # Forward pass
-        outputs = model(words)
-        # if y would be one-hot, we must apply
-        # labels = torch.max(labels, 1)[1]
-        loss = criterion(outputs, labels)
+        # Paso hacia adelante: Proceso donde se alimentan los datos de entrada y calcula predicciones
+        outputs = model(words)                      # Calcula la salida del modelo / Pasa los datos por el Modelo
+        loss = criterion(outputs, labels)           # Calcula la pérdida comparando predicciones (salidas) con etiquetas
         
-        # Backward and optimize
-        optimizer.zero_grad()
-        loss.backward()
-        optimizer.step()
-        
+        # Paso hacia atrás y Optimizacion: Proceso de retropropagacion donde se calcula gradientes 
+        optimizer.zero_grad()                       # Resetea los gradientes
+        loss.backward()                             # Calcula los gradientes / Propagacion del error hacia atras
+        optimizer.step()                            # Actualiza los pesos del modelo basándose en los gradientes
+
+    # Imprime la pérdida cada 100 epocas (recorridos)
     if (epoch+1) % 100 == 0:
-        print (f'Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}')
+        print (f'Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}')  # Muestra la pérdida actual
 
 
-# Imprime la pérdida final después de todas las épocas
+# Imprime la pérdida final después de todas las épocas (recorridos)
 print(f'final loss: {loss.item():.4f}')
 
-# Guarda el estado del modelo y la información de entrenamiento
+# Guarda el estado del modelo y la información de entrenamiento en un diccionario
 data = {
-"model_state": model.state_dict(),
-"input_size": input_size,
-"hidden_size": hidden_size,
-"output_size": output_size,
-"all_words": all_words,
-"tags": tags
+"model_state": model.state_dict(),                  # Guarda los parámetros entrenados del modelo (pesos y sesgos)
+"input_size": input_size,                           # Guarda el tamaño de la entrada
+"hidden_size": hidden_size,                         # Guarda el tamaño de la capa oculta
+"output_size": output_size,                         # Guarda el tamaño de la salida (número de clases o etiquetas)
+"all_words": all_words,                             # Guarda la lista de todas las palabras unicas conocidas por el modelo (vocabulario)
+"tags": tags                                        # Guarda la lista de las etiquetas unicas (intents) que el modelo ha aprendido a predecir
 }
 
+# Archivo donde se guardan los datos del modelo
 FILE = "data.pth"
 torch.save(data, FILE)
 
-print(f'training complete. file saved to {FILE}')
+# Mensaje de entrenamiento terminado y guardado
+print(f'Entrenamiento completo (~‾▿‾)~. Archivo guardado en {FILE}')
